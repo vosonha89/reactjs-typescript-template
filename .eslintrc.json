@@ -1,0 +1,43 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "standard-with-typescript"
+  ],
+  "overrides": [
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "semi": "off",
+    "@typescript-eslint/semi": [ "error", "always" ],
+    "@typescript-eslint/space-before-function-paren": [ "error", "never" ],
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-var-requires": 0,
+    "unicode-bom": 0,
+    "@typescript-eslint/no-extraneous-class": "off",
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "semi",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "semi",
+          "requireLast": false
+        },
+        "multilineDetection": "brackets"
+      }
+    ]
+  }
+}
