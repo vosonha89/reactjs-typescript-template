@@ -1,6 +1,6 @@
 import React from 'react';
 import 'reflect-metadata';
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import './App.css';
 import { Dashboard } from './modules/dashboard/dashboard';
 import { NotFound } from './modules/error/notfound';
@@ -27,6 +27,7 @@ export class App extends React.Component {
             </Routes>;
         } else {
             routes = <Routes>
+                <Route index element={<Login />} />
                 <Route path="login" element={<Login />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>;
@@ -34,11 +35,6 @@ export class App extends React.Component {
         return (
             <div className="App" >
                 {routes}
-                {
-                    !this.authService.isAuthenticated() && (
-                        <Navigate to="/login" replace={true} />
-                    )
-                }
             </div>
         );
     }
