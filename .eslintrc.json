@@ -38,6 +38,13 @@
         },
         "multilineDetection": "brackets"
       }
+    ],
+    "@typescript-eslint/no-this-alias": [
+      "error",
+      {
+        "allowDestructuring": true, // Allow `const { props, state } = this`; false by default
+        "allowedNames": [ "me" ] // Allow `const me= this`; `[]` by default
+      }
     ]
   }
 }

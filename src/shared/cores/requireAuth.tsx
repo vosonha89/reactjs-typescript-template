@@ -3,20 +3,15 @@ import { Navigate } from 'react-router-dom';
 import { container } from 'tsyringe';
 import { AuthService } from '../../services/authService';
 
-export class RequireAuth extends React.Component {
-    public readonly authService: AuthService;
-    constructor(props: {} | Readonly<{}>) {
-        super(props);
-        this.authService = container.resolve(AuthService);
-    }
-
-    public render(): JSX.Element {
+export class RequireAuth {
+    public static authService: AuthService;
+    public static needAuth(children: JSX.Element): JSX.Element {
         const me = this;
+        this.authService = container.resolve(AuthService);
         if (me.authService.isAuthenticated()) {
-
-        }
-        else {
-
+            return children;
+        } else {
+            return <Navigate to='/login' />;
         }
     }
 }
