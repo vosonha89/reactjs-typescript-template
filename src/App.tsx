@@ -1,6 +1,6 @@
 import React from 'react';
 import 'reflect-metadata';
-import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import { Dashboard } from './modules/dashboard/dashboard';
 import { NotFound } from './modules/error/notfound';

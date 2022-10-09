@@ -2,5 +2,9 @@
   {
     "outputFile": "src/custom.css",
     "inputFile": "src/custom.scss"
+  },
+  {
+    "outputFile": "src/modules/auth/login.css",
+    "inputFile": "src/modules/auth/login.scss"
   }
 ]

@@ -27,3 +27,10 @@ code {
         font-size: 3.5rem;
     }
 }
+
+html,
+body,
+#root,
+.App{
+    height: 100%;
+}
