@@ -45,6 +45,8 @@
         "allowDestructuring": true, // Allow `const { props, state } = this`; false by default
         "allowedNames": [ "me" ] // Allow `const me= this`; `[]` by default
       }
-    ]
+    ],
+    "@typescript-eslint/consistent-type-assertions": "warn",
+    "no-debugger": "error"
   }
 }
