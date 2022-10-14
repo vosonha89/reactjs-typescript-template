@@ -19,8 +19,14 @@
   ],
   "rules": {
     "semi": "off",
-    "@typescript-eslint/semi": [ "error", "always" ],
-    "@typescript-eslint/space-before-function-paren": [ "error", "never" ],
+    "@typescript-eslint/semi": [
+      "error",
+      "always"
+    ],
+    "@typescript-eslint/space-before-function-paren": [
+      "error",
+      "never"
+    ],
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/no-var-requires": 0,
     "unicode-bom": 0,
@@ -42,11 +48,16 @@
     "@typescript-eslint/no-this-alias": [
       "error",
       {
-        "allowDestructuring": true, // Allow `const { props, state } = this`; false by default
-        "allowedNames": [ "me" ] // Allow `const me= this`; `[]` by default
+        "allowDestructuring": true,
+        // Allow `const { props, state } = this`; false by default
+        "allowedNames": [
+          "me"
+        ]
+        // Allow `const me= this`; `[]` by default
       }
     ],
     "@typescript-eslint/consistent-type-assertions": "warn",
-    "no-debugger": "error"
+    "@typescript-eslint/no-useless-constructor": "off",
+    "no-debugger": "off"
   }
 }

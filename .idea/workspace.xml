@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a638e84e-d2a6-421b-969e-3a97a7a7aa85" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/reactjs-typescript-template.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/auth/loginModel.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/languageService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/cores/baseModel.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/cores/functions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/cores/reactBindingComponent.tsx" afterDir="false" />
+    <list default="true" id="a638e84e-d2a6-421b-969e-3a97a7a7aa85" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/public/language/en-EN.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/cores/componentState.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/cores/reactWithStageComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/models/languageModel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/language/vi-VN.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/language/vi-VN.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticResources.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/cores/staticResources.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/languageService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/languageService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/cores/reactBindingComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/cores/reactBindingComponent.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +30,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="template/bootstrap" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -78,8 +75,16 @@
       <workItem from="1665455775436" duration="23000" />
       <workItem from="1665455815586" duration="12000" />
       <workItem from="1665456093526" duration="1495000" />
-      <workItem from="1665460127812" duration="23606000" />
+      <workItem from="1665460127812" duration="43095000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1665643699836</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665643699836</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +100,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

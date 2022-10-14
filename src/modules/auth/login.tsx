@@ -5,7 +5,11 @@ import { LoginModel } from './loginModel';
 import { ReactBindingComponent } from '../../shared/cores/reactBindingComponent';
 
 export class Login extends ReactBindingComponent<LoginModel> {
-    public InitModel(): LoginModel {
+    public async init(): Promise<void> {
+        return await Promise.resolve();
+    }
+
+    public initModel(): LoginModel {
         return new LoginModel();
     }
 

@@ -10,35 +10,44 @@ import { AuthService } from './services/authService';
 import { Login } from './modules/auth/login';
 import { RequireAuth } from './shared/cores/requireAuth';
 import { LanguageService } from './services/languageService';
+import { ReactWithStageComponent } from './shared/cores/reactWithStageComponent';
 
-export class App extends React.Component {
-    public readonly authService: AuthService;
-    public readonly languageService: LanguageService;
+export class App extends ReactWithStageComponent<any> {
+    public readonly authService: AuthService = container.resolve(AuthService);
+    public readonly languageService: LanguageService = container.resolve(LanguageService);
+
     constructor(props: {} | Readonly<{}>) {
         super(props);
-        this.authService = container.resolve(AuthService);
-        this.languageService = container.resolve(LanguageService);
     }
 
-    public async render(): Promise<JSX.Element> {
-        await this.languageService.getJson();
+    public async init(): Promise<void> {
+        const me = this;
+        await me.loadLanguage();
+    }
+
+    public async loadLanguage(): Promise<void> {
+        const me = this;
+        await me.languageService.getJson();
+    }
+
+    public render(): JSX.Element {
         let routes;
         if (this.authService.isAuthenticated()) {
             routes = <Routes>
-                <Route index element={<Navigate to="/home" replace />} />
-                <Route path="home" element={RequireAuth.needAuth(<Home />)} />
-                <Route path="dashboard" element={RequireAuth.needAuth(<Dashboard />)} />
-                <Route path="*" element={<NotFound />} />
+                <Route index element={<Navigate to="/home" replace/>}/>
+                <Route path="home" element={RequireAuth.needAuth(<Home/>)}/>
+                <Route path="dashboard" element={RequireAuth.needAuth(<Dashboard/>)}/>
+                <Route path="*" element={<NotFound/>}/>
             </Routes>;
         } else {
             routes = <Routes>
-                <Route index element={<Navigate to="/login" replace />} />
-                <Route path="login" element={<Login />} />
-                <Route path="*" element={<NotFound />} />
+                <Route index element={<Navigate to="/login" replace/>}/>
+                <Route path="login" element={<Login/>}/>
+                <Route path="*" element={<NotFound/>}/>
             </Routes>;
         }
         return (
-            <div className="App" >
+            <div className="App">
                 {routes}
             </div>
         );
