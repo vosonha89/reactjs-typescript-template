@@ -9,15 +9,19 @@ import { container } from 'tsyringe';
 import { AuthService } from './services/authService';
 import { Login } from './modules/auth/login';
 import { RequireAuth } from './shared/cores/requireAuth';
+import { LanguageService } from './services/languageService';
 
 export class App extends React.Component {
     public readonly authService: AuthService;
+    public readonly languageService: LanguageService;
     constructor(props: {} | Readonly<{}>) {
         super(props);
         this.authService = container.resolve(AuthService);
+        this.languageService = container.resolve(LanguageService);
     }
 
-    public render(): JSX.Element {
+    public async render(): Promise<JSX.Element> {
+        await this.languageService.getJson();
         let routes;
         if (this.authService.isAuthenticated()) {
             routes = <Routes>
