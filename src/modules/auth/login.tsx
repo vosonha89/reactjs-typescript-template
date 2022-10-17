@@ -20,7 +20,7 @@ export class Login extends ReactBindingComponent<LoginModel> {
         return new LoginModel();
     }
 
-    public changeLanguage = (event: React.MouseEvent<HTMLElement, MouseEvent>, value: string): void => {
+    public changeLanguage(event: React.MouseEvent<HTMLElement, MouseEvent>, value: string): void {
         const me = this;
         me.languageService.currentLanguage = value;
         me.languageList.forEach(a => {
