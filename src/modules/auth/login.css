@@ -1,5 +1,7 @@
 ﻿.login-rc {
   height: 100%;
+}
+.login-rc .login-box {
   display: flex;
   -webkit-justify-content: center;
   justify-content: center;

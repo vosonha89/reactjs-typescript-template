@@ -1,10 +1,13 @@
 ﻿.login-rc {
     height: 100%;
-    display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
+
+    .login-box {
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
 
     .form-signin {
         max-width: 350px;

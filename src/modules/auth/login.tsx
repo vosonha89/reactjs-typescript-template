@@ -3,9 +3,16 @@ import { StaticResources } from '../../shared/cores/staticResources';
 import '../auth/login.css';
 import { LoginModel } from './loginModel';
 import { ReactBindingComponent } from '../../shared/cores/reactBindingComponent';
+import { SelectItem } from '../../shared/models/selectBox';
 
 export class Login extends ReactBindingComponent<LoginModel> {
+    public languageList: SelectItem[] = [];
+
     public async init(): Promise<void> {
+        const me = this;
+        me.languageList.push({ text: 'Vietnamese', value: 'vi-VN', selected: true } as SelectItem);
+        me.languageList.push({ text: 'English', value: 'en-EN', selected: false } as SelectItem);
+        me.model.selectedLanguage = me.languageList.find(a => a.selected) as SelectItem;
         return await Promise.resolve();
     }
 
@@ -13,9 +20,16 @@ export class Login extends ReactBindingComponent<LoginModel> {
         return new LoginModel();
     }
 
-    public changeLanguage = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+    public changeLanguage = (event: React.MouseEvent<HTMLElement, MouseEvent>, value: string): void => {
         const me = this;
-        me.languageService.currentLanguage = 'en-EN';
+        me.languageService.currentLanguage = value;
+        me.languageList.forEach(a => {
+            a.selected = false;
+            if (a.value === value) {
+                a.selected = true;
+                me.model.selectedLanguage = a;
+            }
+        });
         me.languageService.getJson().then(() => {
             me.language.setText(me.languageService.text);
         }).catch((error) => {
@@ -25,8 +39,22 @@ export class Login extends ReactBindingComponent<LoginModel> {
 
     public render(): JSX.Element {
         return (
-            <div className="container login-rc">
+            <div className="container-fluid login-rc">
                 <div className="row">
+                    <div className="col-12 d-flex justify-content-end">
+                        <div className="dropdown mt-2">
+                            <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {this.model.selectedLanguage.text}
+                            </button>
+                            <ul className="dropdown-menu">
+                                {
+                                    this.languageList.map((object) => <li key={object.value} onClick={(e) => { this.changeLanguage(e, object.value); }}><a className="dropdown-item"> {object.text}</a></li>)
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div className="row login-box">
                     <div className="col-12">
                         <main className="form-signin mx-auto">
                             <form>
@@ -38,9 +66,7 @@ export class Login extends ReactBindingComponent<LoginModel> {
                                         className="form-control"
                                         placeholder="email@example.com"
                                         value={this.model.username}
-                                        onChange={(e) => {
-                                            this.model.username = e.target.value;
-                                        }}
+                                        onChange={(e) => { this.model.username = e.target.value; }}
                                     />
                                     <label>Email address</label>
                                 </div>
@@ -50,7 +76,6 @@ export class Login extends ReactBindingComponent<LoginModel> {
                                     <label htmlFor="floatingPassword">Password</label>
                                 </div>
                                 <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-                                <button className="w-100 btn btn-lg btn-primary" type="button" onClick={(e) => { this.changeLanguage(e); }}>Change</button>
                             </form>
                         </main>
                     </div>
