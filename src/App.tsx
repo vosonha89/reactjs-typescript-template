@@ -9,41 +9,33 @@ import { container } from 'tsyringe';
 import { AuthService } from './services/authService';
 import { Login } from './modules/auth/login';
 import { RequireAuth } from './shared/cores/requireAuth';
-import { LanguageService } from './services/languageService';
 import { ReactWithStageComponent } from './shared/cores/reactWithStageComponent';
 
 export class App extends ReactWithStageComponent<any> {
     public readonly authService: AuthService = container.resolve(AuthService);
-    public readonly languageService: LanguageService = container.resolve(LanguageService);
 
     constructor(props: {} | Readonly<{}>) {
         super(props);
     }
 
     public async init(): Promise<void> {
-        const me = this;
-        await me.loadLanguage();
-    }
-
-    public async loadLanguage(): Promise<void> {
-        const me = this;
-        await me.languageService.getJson();
+        return await Promise.resolve();
     }
 
     public render(): JSX.Element {
         let routes;
         if (this.authService.isAuthenticated()) {
             routes = <Routes>
-                <Route index element={<Navigate to="/home" replace/>}/>
-                <Route path="home" element={RequireAuth.needAuth(<Home/>)}/>
-                <Route path="dashboard" element={RequireAuth.needAuth(<Dashboard/>)}/>
-                <Route path="*" element={<NotFound/>}/>
+                <Route index element={<Navigate to="/home" replace />} />
+                <Route path="home" element={RequireAuth.needAuth(<Home />)} />
+                <Route path="dashboard" element={RequireAuth.needAuth(<Dashboard />)} />
+                <Route path="*" element={<NotFound />} />
             </Routes>;
         } else {
             routes = <Routes>
-                <Route index element={<Navigate to="/login" replace/>}/>
-                <Route path="login" element={<Login/>}/>
-                <Route path="*" element={<NotFound/>}/>
+                <Route index element={<Navigate to="/login" replace />} />
+                <Route path="login" element={<Login />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>;
         }
         return (

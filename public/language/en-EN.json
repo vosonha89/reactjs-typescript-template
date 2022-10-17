@@ -1,3 +1,11 @@
 {
-  "title":  "React Typescript Application"
+  "title": "React Typescript Application",
+  "login": {
+    "title": "Please sign in",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "email@example.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Password"
+  },
+  "signIn": "Sign in"
 }

@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "npm run lint && react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm install && npm run lint && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .tsx . && eslint --ext .ts ."

@@ -13,6 +13,16 @@ export class Login extends ReactBindingComponent<LoginModel> {
         return new LoginModel();
     }
 
+    public changeLanguage = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
+        const me = this;
+        me.languageService.currentLanguage = 'en-EN';
+        me.languageService.getJson().then(() => {
+            me.language.setText(me.languageService.text);
+        }).catch((error) => {
+            console.log(error);
+        });
+    };
+
     public render(): JSX.Element {
         return (
             <div className="container login-rc">
@@ -20,27 +30,27 @@ export class Login extends ReactBindingComponent<LoginModel> {
                     <div className="col-12">
                         <main className="form-signin mx-auto">
                             <form>
-                                <img className="mb-4" src={StaticResources.logo} alt="" width="72" height="57"/>
-                                <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
-                                Hello {this.model.username}
+                                <img className="mb-4" src={StaticResources.logo} alt="" width="72" height="57" />
+                                <h1 className="h3 mb-3 fw-normal">{this.language?.text?.title}</h1>
+                                {this.model.username}
                                 <div className="form-floating mb-3">
                                     <input type="email"
-                                           className="form-control"
-                                           placeholder="email@example.com"
-                                           value={this.model.username}
-                                           onChange={(e) => {
-                                               this.model.username = e.target.value;
-                                           }}
+                                        className="form-control"
+                                        placeholder="email@example.com"
+                                        value={this.model.username}
+                                        onChange={(e) => {
+                                            this.model.username = e.target.value;
+                                        }}
                                     />
                                     <label>Email address</label>
                                 </div>
                                 <div className="form-floating mb-3">
                                     <input type="password" className="form-control" id="floatingPassword"
-                                           placeholder="Password"/>
+                                        placeholder="Password" />
                                     <label htmlFor="floatingPassword">Password</label>
                                 </div>
                                 <button className="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-                                <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+                                <button className="w-100 btn btn-lg btn-primary" type="button" onClick={(e) => { this.changeLanguage(e); }}>Change</button>
                             </form>
                         </main>
                     </div>

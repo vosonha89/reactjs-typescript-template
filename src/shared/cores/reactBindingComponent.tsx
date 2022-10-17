@@ -17,7 +17,6 @@ export abstract class ReactBindingComponent<T extends BaseModel> extends ReactWi
 
     public updateState(field: string, value: any): void {
         const me = this;
-        debugger;
         if (me.componentState !== undefined) {
             me.componentState.data = me.model;
         }

@@ -24,7 +24,7 @@
       "always"
     ],
     "@typescript-eslint/space-before-function-paren": [
-      "error",
+      "off",
       "never"
     ],
     "@typescript-eslint/indent": "off",

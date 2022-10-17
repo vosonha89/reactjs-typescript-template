@@ -1,3 +1,11 @@
 {
-	 "title":  "React Typescript Tiếng Việt"
+	"title": "React Typescript Application VN",
+	"login": {
+		"title": "Please sign in VN",
+		"emailLabel": "Email address VN",
+		"emailPlaceholder": "email@example.com VN",
+		"passwordLabel": "Password VN",
+		"passwordPlaceholder": "Password VN"
+	},
+	"signIn": "Sign in VN"
 }

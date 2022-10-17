@@ -1,5 +1,5 @@
 import { singleton } from 'tsyringe';
-import { LanguageText } from '../shared/models/languageModel';
+import { LanguageText } from '../shared/models/languageText';
 
 @singleton()
 export class LanguageService {
@@ -17,6 +17,22 @@ export class LanguageService {
                 me.text = JSON.parse(responseText);
             }
         }
-        console.log(me.text);
+    }
+}
+
+export class LanguageModel {
+    private _text: LanguageText = {} as LanguageText;
+
+    public onLanguageChanged?: (value: any) => void;
+
+    public get text(): LanguageText {
+        return this._text;
+    }
+
+    public setText(value: LanguageText): void {
+        this._text = value;
+        if (this.onLanguageChanged != null) {
+            this.onLanguageChanged(value);
+        }
     }
 }

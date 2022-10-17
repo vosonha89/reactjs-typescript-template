@@ -7,7 +7,7 @@ export class RequireAuth {
     public static authService: AuthService;
     public static needAuth(children: JSX.Element): JSX.Element {
         const me = this;
-        this.authService = container.resolve(AuthService);
+        me.authService = container.resolve(AuthService);
         if (me.authService.isAuthenticated()) {
             return children;
         } else {
